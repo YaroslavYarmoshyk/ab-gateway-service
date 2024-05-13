@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: authorization-service
+          uri: ${system-configuration.endpoints.authorization-service}
+          predicates:
+            - Path=/api/auth/**
+        - id: user-service
+          uri: ${system-configuration.endpoints.user-service}
+          predicates:
+            - Path=/api/users/**
